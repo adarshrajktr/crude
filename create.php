@@ -1,6 +1,9 @@
 <?php
+
+include("session.php");
 // Include config file
 require_once 'config.php';
+
  
 // Define variables and initialize with empty values
 $name = $address = $salary = "";
@@ -74,6 +77,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  
+  
     <meta charset="UTF-8">
     <title>Create Record</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
@@ -85,14 +98,36 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </style>
 </head>
 <body>
+  
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">CRUDE</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href=index.php>Home</a></li>
+      <li class="active"><a href="create.php">New Employee details</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="profile.php">Admin Details</a></li>
+      <li><a href="logout.php">Log Out</a></li>
+    </ul>
+  </div>
+</nav>
+ 
+  
+  
+  
+  
+  
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
-                        <h2>Create Record</h2>
+                        <h1>Create Record</h1>
                     </div>
-                    <p>Please fill this form and submit to add employee record to the database.</p>
+                    <p> Fill this form and submit to add employee record to the database.</p>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
                             <label>Name</label>
